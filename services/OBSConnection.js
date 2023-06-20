@@ -18,7 +18,7 @@ export default class OBSConnectionService {
   async startStreaming() {
     try {
       await this.connect();
-      await this.obs.send("StartStreaming");
+      await this.obs.call("StartStream");
       console.log("A transmissão foi iniciada!");
       await this.obs.disconnect();
     } catch (error) {
@@ -29,7 +29,9 @@ export default class OBSConnectionService {
   async switchScene(sceneName) {
     try {
       await this.connect();
-      await this.obs.send("SetCurrentScene", { "scene-name": sceneName });
+      await this.obs.call("SetCurrentProgramScene", {
+        sceneName: sceneName,
+      });
       console.log("Cena alterada!");
       await this.obs.disconnect();
     } catch (error) {
@@ -40,7 +42,7 @@ export default class OBSConnectionService {
   async stopStreaming() {
     try {
       await this.connect();
-      await this.obs.send("StopStreaming");
+      await this.obs.call("StopStream");
       console.log("A transmissão foi encerrada!");
       await this.obs.disconnect();
     } catch (error) {

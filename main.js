@@ -44,6 +44,7 @@ async function mainMenu() {
             scheduleDate,
             obsConnectionService.startStreaming.bind(obsConnectionService)
           );
+          mainMenu(); // Return to main menu
           break;
         case "2":
           console.log("Digite o nome da cena que deseja trocar:");
@@ -53,6 +54,7 @@ async function mainMenu() {
             new ScheduleTaskService(scheduleDate, () =>
               obsConnectionService.switchScene(sceneName)
             );
+            mainMenu(); // Return to main menu after scene name is input
           });
           break;
         case "3":
@@ -63,11 +65,12 @@ async function mainMenu() {
             scheduleDate,
             obsConnectionService.stopStreaming.bind(obsConnectionService)
           );
+          mainMenu(); // Return to main menu
           break;
         default:
           console.log("Opção inválida. Tente novamente.");
+          mainMenu(); // Return to main menu
       }
-      mainMenu(); // Return to main menu
     });
   });
 }
