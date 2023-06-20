@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "node-schedule": "^2.1.1",
     "obs-websocket-js": "^5.0.3"
   }

@@ -1,9 +1,12 @@
+import dotenv from "dotenv";
 import OBSConnectionService from "./services/OBSConnection.js";
 import ScheduleTaskService from "./services/ScheduleTask.js";
 
+dotenv.config();
+
 const obsConnectionService = new OBSConnectionService(
-  "localhost:4455",
-  "igreja1844"
+  process.env.OBS_ADDRESS,
+  process.env.OBS_PASSWORD
 );
 
 async function mainMenu() {
