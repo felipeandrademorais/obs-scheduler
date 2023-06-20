@@ -1,0 +1,11 @@
+{
+  "name": "autobs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "node-schedule": "^2.1.1",
+    "obs-websocket-js": "^5.0.3"
+  }
+}
